@@ -16,6 +16,7 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter([5,5,-9,5]), 5)
         # unsorted list, even length, duplication, and negatives
         self.assertEqual(max_list_iter([1,2,3,-6,-7,7,8,-9,-10]), 8)
+        self.assertEqual(max_list_iter([1]), 0) # list with single entry
         self.assertEqual(max_list_iter([]), None) # empty list
 
 
