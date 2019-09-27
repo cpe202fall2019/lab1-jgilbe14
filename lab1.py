@@ -12,7 +12,6 @@ def max_list_iter(int_list):
         if n > max:
             max = n
     return max
-   pass
 
 def reverse_rec(int_list, index = 0):
     if int_list == None:
@@ -30,7 +29,6 @@ def reverse_rec(int_list, index = 0):
     index += 1
 
     return reverse_rec(int_list, index)
-   pass
 
 def bin_search(target, low, high, int_list):
     if int_list == None:
@@ -51,5 +49,3 @@ def bin_search(target, low, high, int_list):
 
     if high == low:
         return None
-
-   pass
