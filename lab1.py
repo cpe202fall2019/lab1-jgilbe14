@@ -37,14 +37,15 @@ def bin_search(target, low, high, int_list):
     mid_index = (low + high)//2
 
     if int_list[mid_index] == target: #check whether the mid_index equals the target
-        return mid_index
+        return int_list[mid_index]
+
+    if high == low:
+        return None
 
     if int_list[mid_index] > target: #if mid_index is greater
-        high = mid_index + 1
+        high = mid_index - 1
         return bin_search(target, low, high, int_list)
 
     if int_list[mid_index] < target:
-        low = mid_index - 1
+        low = mid_index  + 1
         return bin_search(target, low, high, int_list)
-
-    return None #if it fails all of the if statements then the value is not in the list
