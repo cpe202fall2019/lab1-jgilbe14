@@ -8,13 +8,13 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
-        self.assertEqual(max_list_iter([1,2,3]), 3) # sorted list (max on right)
+        self.assertEqual(max_list_iter([1,2,3]), 3) # sorted list (max on right), odd length
         self.assertEqual(max_list_iter([-1,-2,-3]), -1) # negative numbers, max on the left
         self.assertEqual(max_list_iter([10,100,10]), 100)  # max in the center, and duplication
         self.assertEqual(max_list_iter([100,100,100]), 100)  # list containing identical values
          # both duplication and negative numbers in list
-        self.assertEqual(max_list_iter([5,5,-9]), 5)
-        # unsorted list, max in center, duplication, and negatives
+        self.assertEqual(max_list_iter([5,5,-9,5]), 5)
+        # unsorted list, even length, duplication, and negatives
         self.assertEqual(max_list_iter([1,2,3,-6,-7,7,8,-9,-10]), 8)
         self.assertEqual(max_list_iter([]), None) # empty list
 
