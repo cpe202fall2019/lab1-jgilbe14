@@ -6,15 +6,15 @@ class Location:
         self.name = name    # string for name of location
         self.lat = lat      # latitude in degrees (-90 to 90)
         self.lon = lon      # longitude in degrees (-180 to 180)
-
+        
+# determines whether two locations are equal by comparing their names, and lat. and .lon.
     def __eq__(self, other):
         return (self.name == other.name and
             self.lat == other.lat and self.lon == other.lon)
 
+# creates a printable string representation of a location, including name and lat. and lon.
     def __repr__(location):
         return "Location" + str((location.name, location.lat, location.lon))
-
-# ADD BOILERPLATE HERE (__eq__ and __repr__ functions)
 
 def main():
     loc1 = Location("SLO", 35.3, -120.7)

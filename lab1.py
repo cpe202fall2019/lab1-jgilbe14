@@ -19,11 +19,11 @@ def reverse_rec(int_list, index = 0):
 
     list_length = len(int_list)
 
-    if index == list_length // 2:
+    if index == list_length // 2: # since you are working from both ends, when you have reached the middle of the list you are done
         return int_list
 
     temp = int_list[index]
-    int_list[index] = int_list[(list_length - index) - 1]
+    int_list[index] = int_list[(list_length - index) - 1] #exchange the a value from the lefthand side of the list, with a value the same distance from the right hand side
     int_list[(list_length - index) - 1] = temp
 
     index += 1
@@ -36,16 +36,15 @@ def bin_search(target, low, high, int_list):
 
     mid_index = (low + high)//2
 
-    if int_list[mid_index] == target:
+    if int_list[mid_index] == target: #check whether the mid_index equals the target
         return mid_index
 
-    if int_list[mid_index] > target:
-        high = mid_index
+    if int_list[mid_index] > target: #if mid_index is greater
+        high = mid_index + 1
         return bin_search(target, low, high, int_list)
 
     if int_list[mid_index] < target:
-        low = mid_index
+        low = mid_index - 1
         return bin_search(target, low, high, int_list)
 
-    if high == low:
-        return None
+    return None #if it fails all of the if statements then the value is not in the list
