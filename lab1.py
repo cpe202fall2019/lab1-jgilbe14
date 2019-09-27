@@ -37,7 +37,7 @@ def bin_search(target, low, high, int_list):
     mid_index = (low + high)//2
 
     if int_list[mid_index] == target: #check whether the mid_index equals the target
-        return int_list[mid_index]
+        return mid_index
 
     if high == low:
         return None
