@@ -4,7 +4,7 @@ from lab1 import *
 class TestLab1(unittest.TestCase):
 
     def test_max_list_iter(self):
-        """add description here"""
+        """Test for max_list_iter function"""
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
@@ -21,6 +21,7 @@ class TestLab1(unittest.TestCase):
 
 
     def test_reverse_rec(self):
+        '''Test for reverse_rec function'''
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(tlist)
@@ -32,7 +33,8 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(reverse_rec([]),[]) # empty list
     
 
-    def test_bin_search(self):           
+    def test_bin_search(self):
+        '''Test for bin_search function'''       
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             bin_search(0, 0, 0, tlist)
