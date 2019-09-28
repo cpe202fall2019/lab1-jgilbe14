@@ -37,7 +37,7 @@ def bin_search(target, low, high, int_list):
     if int_list == None: # raise ValueError if list is None
         raise ValueError
 
-    mid_index = (low + high)//2 # find the (truncated) mid-index
+    mid_index = (low + high) // 2 # find the (truncated) mid-index
 
     if int_list[mid_index] == target: # check whether the mid_index equals the target
         return mid_index # if so return the index value of the target

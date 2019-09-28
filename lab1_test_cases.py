@@ -25,11 +25,12 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             reverse_rec(tlist)
-        self.assertEqual(reverse_rec([1,2,3]),[3,2,1]) # basic test
+        self.assertEqual(reverse_rec([1,2,3]),[3,2,1]) # basic test odd number of entries
         self.assertEqual(reverse_rec([1,1,1]),[1,1,1]) # list of identical values
         self.assertEqual(reverse_rec([1,-2,3]),[3,-2,1]) # negatives
         self.assertEqual(reverse_rec([0,0,2,2,6]),[6,2,2,0,0]) # duplication in list
-        self.assertEqual(reverse_rec([1]),[1]) # list with a single entry
+        self.assertEqual(reverse_rec([0,5,0,-2,2,6]),[6,2,-2,0,5,0]) # even number of entries and duplication
+        self.assertEqual(reverse_rec([12]),[12]) # list with a single entry
         self.assertEqual(reverse_rec([]),[]) # empty list
     
 
@@ -45,23 +46,24 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), 8) # target at right
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0) # target at left
         self.assertEqual(bin_search(1, 0, len(list_val)-1, list_val), 1) # target close to left
+        self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), 7) # target close to right
         self.assertEqual(bin_search(6, 0, len(list_val)-1, list_val), None) # target not contained in list
-        list_val =[0,0,0,0,0,0]
+        list_val = [0,0,0,0,0,0]
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 2) # list with identical values
          # list with identical values & target not contained
         self.assertEqual(bin_search(5, 0, len(list_val)-1, list_val), None)
-        list_val =[-3,-2,-1,0,4]
-        self.assertEqual(bin_search(-1, 0, len(list_val)-1, list_val), 2) # list with negative values
-        self.assertEqual(bin_search(-3, 0, len(list_val)-1, list_val), 0) # target negative
-        list_val =[-100]
+        list_val = [-3,-2,-1,0,4,7]
+        self.assertEqual(bin_search(-1, 0, len(list_val)-1, list_val), 2) # even number of entries with negative values
+        self.assertEqual(bin_search(-3, 0, len(list_val)-1, list_val), 0) # even number of entries, target negative
+        list_val = [1,0,0,1]
+        self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 1) # even number of entries, duplication
+        list_val = [-100]
         self.assertEqual(bin_search(-100, 0, len(list_val)-1, list_val), 0) # list containing a single entry
          # list containing single entry & target not contained
         self.assertEqual(bin_search(-3, 0, len(list_val)-1, list_val), None)
 
 
 
-        
-    
 
 if __name__ == "__main__":
         unittest.main()
